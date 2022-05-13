@@ -22,8 +22,46 @@ Step 6: open google page using Implicit Intents in MainActivity file.
 
 Step 7: Save and run the application.
 ## PROGRAM:
+```pyton
 /*
 Program to print the text “Implicit and Explicit Intents”.
 Developed by: DurgaDevi P
 Registeration Number : 212220230015
 */
+```
+## Implicit
+### MainActivity.java
+```python
+package com.example.firstapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.example.life.R;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button button;
+    EditText editText;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        button = findViewById(R.id.button2);
+        editText =  findViewById(R.id.editTextTextPersonName);
+
+        button.setOnClickListener(view -> {
+            String url=editText.getText().toString();
+            Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(intent);
+        });
+    }
+}
+```
